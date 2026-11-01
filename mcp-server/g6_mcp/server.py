@@ -25,6 +25,7 @@ WAV_LOAD_TIMEOUT = 10.0   # the device copies the file before answering; no maxi
 WAV_LOAD_LINGER = 1.5     # keep listening after the reply for late notifications
 LOOPER_LISTEN = 1.0       # listen for Looper notifications after play/stop (nothing is waited for)
 DEFAULT_BACKUP_DIR = '~/.g6-control/backups'
+PATCH_FORMAT_GUIDE = Path(__file__).parent / 'data' / 'patch_format.md'
 
 
 def _ranges(numbers: list[int]) -> str:
@@ -119,6 +120,12 @@ class G6Tools:
         notes.append(f'confirmations begin/data/end: {steps}')
         notes.append(f'slot {slot} now contains "{P.ptcf_name(new)}", identical to the file: {new == ptcf}')
         return '\n'.join(notes)
+
+    def patch_format_guide(self) -> str:
+        """How to build a .zptc patch for patch_write: file layout, how effects and parameter values are stored,
+        foot switch assignments, Python helpers, and the effect table (ids, processing load, parameters and ranges)
+        for firmware 2.00. Read it before creating or editing a patch. Sends nothing to the G6."""
+        return PATCH_FORMAT_GUIDE.read_text(encoding='utf-8')
 
     # ---------------- active patch (live) ----------------
 
@@ -776,7 +783,8 @@ class G6Tools:
 
 
 TOOL_NAMES = (
-    'patch_list', 'patch_read', 'patch_write', 'patch_status', 'patch_select', 'patch_next', 'patch_previous',
+    'patch_list', 'patch_read', 'patch_write', 'patch_format_guide', 'patch_status', 'patch_select', 'patch_next',
+    'patch_previous',
     'effect_set_enabled', 'effect_set_param', 'effects_list',
     'rhythm_status', 'rhythm_start', 'rhythm_stop', 'rhythm_set_bpm', 'rhythm_set_pattern', 'rhythm_set_volume',
     'rhythm_set_count', 'tuner_on', 'tuner_off', 'storage_sd_space', 'storage_wav_count', 'storage_wav_list',
@@ -806,7 +814,8 @@ def build_server(tools: G6Tools | None = None):
         'patch and its effects, the drum machine, the tuner, SD card information and WAV loading into the Looper '
         '(only after the user confirms the Looper is stopped), and a gated Looper play/stop (load, confirmation on the '
         'display, one play, then stop), and the Looper settings (volume, STOP MODE, POSITION). Live changes are not saved '
-        'to the patch. Only verified messages are sent and nothing is resent automatically.'))
+        'to the patch. Only verified messages are sent and nothing is resent automatically. Before building or '
+        'editing a patch, read patch_format_guide.'))
     for name in TOOL_NAMES:
         server.tool(name=name)(_guard(tools, getattr(tools, name)))
     return server

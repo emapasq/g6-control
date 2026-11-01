@@ -7,7 +7,8 @@ Tools to control a **Zoom G6** multi-effects processor from a computer over USB 
   the Looper settings (volume, STOP MODE, POSITION).
 - **`mcp-server/`** — an MCP server that lets an AI assistant control the G6: stored patches (read, write with backup),
   live editing of the active patch, drum machine, tuner, SD card information, WAV loading, a gated Looper play/stop and
-  the Looper settings. It can also be used to generate patches with an assistant.
+  the Looper settings. Ask the assistant for a patch in the style you want and it builds it and writes it to a free
+  slot (see [`mcp-server/README.md`](mcp-server/README.md#using-it-to-generate-patches)).
 - **`protocol/`** — the list of known commands and shared test frames.
 
 > **Unofficial project.** Not affiliated with, endorsed by or supported by Zoom Corporation.

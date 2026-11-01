@@ -64,6 +64,7 @@ env = { G6_BACKUP_DIR = "/path/to/your/g6-backups" }
 | Stored patches | `patch_list()` | names of the 240 slots and the free ones (read-only, PC Mode for a few seconds) |
 | | `patch_read(slot)` | a slot as a `.zptc` file in base64, the same format Guitar Lab exports |
 | | `patch_write(zptc_base64, slot, overwrite=False)` | writes a `.zptc`; refuses an occupied slot unless `overwrite=True`, then backs the old one up first; reads it back and compares |
+| | `patch_format_guide()` | how to build a `.zptc`: layout, value encoding, foot switches, Python helpers and the effect table (ids, processing load, parameters); sends nothing |
 | Active patch | `patch_status()` | slot, name, and every block with ON/OFF and its numbered parameters as on the display |
 | | `patch_select(slot)`, `patch_next()`, `patch_previous()` | change patch |
 | | `effect_set_enabled(block, enabled)` | switch a block on/off (acts only if needed) |
@@ -136,13 +137,15 @@ USB. Play and stop were verified on firmware 2.00 with STOP MODE *Instant* only:
 
 ## Using it to generate patches
 
-General rules for an assistant that builds patches:
+Ask the assistant for a patch in plain words ("a Gilmour-style lead for my Strat, with delay on foot switch 2"). The
+server moves `.zptc` files; the assistant builds them, following the guide returned by `patch_format_guide()` (the same
+text is in [`g6_mcp/data/patch_format.md`](g6_mcp/data/patch_format.md)). The usual flow:
 
 1. Start from `patch_list()` and pick a **free slot**; overwrite only when the user asks.
-2. Use an existing patch (`patch_read`) as a template: the server moves `.zptc` files, it does not create them, so the
-   assistant needs a description of the PTCF format to change effects and parameter values.
-3. A patch has 9 blocks; amp models take two. The device also limits the total processing load of a patch: if a block
-   does not load, the patch is over the limit.
+2. Read the guide, and use an existing patch (`patch_read`) as a template for the parts of the file that are not
+   decoded.
+3. A patch has 9 blocks; amp models take two. The device also limits the total processing load of a patch (the guide
+   lists the load of each effect): if a block does not load, the patch is over the limit.
 4. Values in the file and in `effect_set_param` are raw: they start at 0 (a parameter shown as 1–4000 is 0–3999), and
    lists are indices. `effects_list` gives the maximum of every parameter.
 5. After `patch_write`, `patch_select(slot)` and `patch_status()` show what the device actually loaded. Fine-tune live

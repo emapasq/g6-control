@@ -762,6 +762,53 @@ class Catalog(unittest.TestCase):
         self.assertIsNone(c.resolve('OverDrive'))
 
 
+class PatchFormatGuide(unittest.TestCase):
+    def setUp(self):
+        self.text = G6Tools(device=G6Device(backend_factory=lambda: None)).patch_format_guide()
+
+    def helpers(self):
+        import re
+        namespace = {}
+        exec(re.search(r'```python\n(.*?)```', self.text, re.S).group(1), namespace)
+        return namespace
+
+    def test_effect_table_matches_the_module_table(self):
+        import re
+        listed = {}
+        for row in re.findall(r'^\| (0x[0-9a-f]{8}) \| ([^|]+?) \|(?: (0x[0-9a-f]{8}) \| ([^|]+?) \|)?', self.text, re.M):
+            listed[int(row[0], 16)] = row[1]
+            if row[2]:
+                listed[int(row[2], 16)] = row[3]
+        table = json.loads((Path(S.__file__).parent / 'data' / 'effect_files.json').read_text())['effects']
+        known = {int(e['id'], 16): e['name'] for e in table}
+        self.assertEqual(listed, known)
+
+    def test_helpers_build_a_valid_patch(self):
+        h = self.helpers()
+        template = make_ptcf('TEMPLATE', [], size=100)
+        template = template[:0x24] + b'TXJ1' + bytes(4) + b'TXE1' + bytes(4) + b'EDTB' + bytes(4) + b'PRM2' + \
+            (32).to_bytes(4, 'little') + bytes(range(32))
+        chain = [(0x01000040, True, [0, 60, 25, 40]),                         # ZNR
+                 (0x0400001c, True, [35, 45, 70, 65, 55, 60, 20, 2]),         # MS 1959 (+ hidden 2)
+                 (0x00000001, True, []),
+                 (0x08000020, False, [449, 20, 12, 1])]                       # AnalogDly 450 ms
+        patch = h['build_patch'](template, 'Test', chain, [3, None, 0])
+        P.check_ptcf(patch)
+        self.assertEqual(len(patch), 100 + 28 * len(chain))
+        self.assertEqual(P.ptcf_name(patch), 'Test')
+        self.assertEqual(P.ptcf_effect_ids(patch), [0x01000040, 0x0400001c, 1, 0x08000020])
+        edtb = patch.find(b'EDTB') + 8
+        self.assertEqual(patch[edtb + 48:edtb + 72], bytes([3]) + bytes(23))         # second half of the amp
+        delay = int.from_bytes(patch[edtb + 72:edtb + 96], 'little')
+        self.assertEqual((delay & 1, (delay >> 1) & 0x1FFFFFFF, (delay >> 30) & 0xFFF), (0, 0x08000020, 449))
+        prm2 = patch[patch.find(b'PRM2') + 8:][:32]
+        self.assertEqual(prm2[:28], bytes(range(28)))                                # copied from the template
+        self.assertEqual(int.from_bytes(prm2[28:], 'little'), 0x000F0F30)
+        self.assertEqual(h['build_patch'](template, 'X', [], [2, 6, 7])[-4:], (0x000F7620).to_bytes(4, 'little'))
+        with self.assertRaises(ValueError):
+            h['edtb_entry'](0x08000020, True, [4096])
+
+
 class Registration(unittest.TestCase):
     def test_tools_are_registered(self):
         try:
@@ -772,7 +819,7 @@ class Registration(unittest.TestCase):
         import asyncio
         names = {t.name for t in asyncio.run(server.list_tools())}
         self.assertEqual(names, set(TOOL_NAMES))
-        self.assertEqual(len(TOOL_NAMES), 31)
+        self.assertEqual(len(TOOL_NAMES), 32)
 
 
 if __name__ == '__main__':

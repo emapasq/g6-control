@@ -18,4 +18,4 @@ g6-mcp = "g6_mcp.server:main"
 packages = ["g6_mcp"]
 
 [tool.setuptools.package-data]
-g6_mcp = ["data/*.json"]
+g6_mcp = ["data/*.json", "data/*.md"]
