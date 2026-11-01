@@ -1,0 +1,923 @@
+{
+ "_description": "Zoom G6 effect modules: display name -> module file (.ZD2) and effect id. Used to look up parameter ranges read from the device.",
+ "_source": "zoom_fx_AllZDL7/G6/unzipped/list_sorted.txt from https://github.com/mungewell/zoom-zt2 (MIT License, Copyright (c) 2019 mungewell)",
+ "effects": [
+  {
+   "id": "0x01000010",
+   "file": "COMP.ZD2",
+   "name": "Comp"
+  },
+  {
+   "id": "0x01000020",
+   "file": "RACKCOMP.ZD2",
+   "name": "RackComp"
+  },
+  {
+   "id": "0x01000030",
+   "file": "SLWATK.ZD2",
+   "name": "SlowATTCK"
+  },
+  {
+   "id": "0x01000040",
+   "file": "ZNR.ZD2",
+   "name": "ZNR"
+  },
+  {
+   "id": "0x01000050",
+   "file": "MUTESW.ZD2",
+   "name": "MuteSW"
+  },
+  {
+   "id": "0x01000060",
+   "file": "GRAYCOMP.ZD2",
+   "name": "GrayComp"
+  },
+  {
+   "id": "0x01000070",
+   "file": "N_GATE.ZD2",
+   "name": "NoiseGate"
+  },
+  {
+   "id": "0x01000080",
+   "file": "OPTCOMP.ZD2",
+   "name": "OptComp"
+  },
+  {
+   "id": "0x01800010",
+   "file": "BLACKOPT.ZD2",
+   "name": "BlackOpt"
+  },
+  {
+   "id": "0x01800020",
+   "file": "LMT1176.ZD2",
+   "name": "LMT-76"
+  },
+  {
+   "id": "0x02000010",
+   "file": "AUTOWAH.ZD2",
+   "name": "AutoWah"
+  },
+  {
+   "id": "0x02000020",
+   "file": "RESONANC.ZD2",
+   "name": "Resonance"
+  },
+  {
+   "id": "0x02000030",
+   "file": "CRY.ZD2",
+   "name": "Cry"
+  },
+  {
+   "id": "0x02000040",
+   "file": "SEQFLTR.ZD2",
+   "name": "SeqFLTR"
+  },
+  {
+   "id": "0x02000051",
+   "file": "GT_GEQ1U.ZD2",
+   "name": "Gt GEQ"
+  },
+  {
+   "id": "0x02000054",
+   "file": "GTGEQ71U.ZD2",
+   "name": "Gt GEQ 7"
+  },
+  {
+   "id": "0x02000061",
+   "file": "STGTGE1U.ZD2",
+   "name": "St Gt GEQ"
+  },
+  {
+   "id": "0x02000070",
+   "file": "PARAEQ.ZD2",
+   "name": "ParaEQ"
+  },
+  {
+   "id": "0x02000081",
+   "file": "EGFLTR1U.ZD2",
+   "name": "EG FLTR"
+  },
+  {
+   "id": "0x02000090",
+   "file": "RNDMFLTR.ZD2",
+   "name": "RndmFLTR"
+  },
+  {
+   "id": "0x020000a0",
+   "file": "LOWPASSF.ZD2",
+   "name": "LowPassFL"
+  },
+  {
+   "id": "0x020000b0",
+   "file": "EXCITER.ZD2",
+   "name": "Exciter"
+  },
+  {
+   "id": "0x020000c0",
+   "file": "STEP.ZD2",
+   "name": "Step"
+  },
+  {
+   "id": "0x020000d0",
+   "file": "LFO_FLTR.ZD2",
+   "name": "LFO FLTR"
+  },
+  {
+   "id": "0x03000010",
+   "file": "TS_DRIVE.ZD2",
+   "name": "TS Drive"
+  },
+  {
+   "id": "0x03000020",
+   "file": "EP_STOMP.ZD2",
+   "name": "EP Stomp"
+  },
+  {
+   "id": "0x03000030",
+   "file": "RCBOOST.ZD2",
+   "name": "RC Boost"
+  },
+  {
+   "id": "0x03000040",
+   "file": "GOLD_DRV.ZD2",
+   "name": "GoldDrive"
+  },
+  {
+   "id": "0x03000050",
+   "file": "SWEETDRV.ZD2",
+   "name": "SweetDrv"
+  },
+  {
+   "id": "0x03000060",
+   "file": "DYNDRIVE.ZD2",
+   "name": "DYN Drive"
+  },
+  {
+   "id": "0x03000070",
+   "file": "REDCRUNC.ZD2",
+   "name": "RedCrunch"
+  },
+  {
+   "id": "0x03000080",
+   "file": "MTLWRLD.ZD2",
+   "name": "MetalWRLD"
+  },
+  {
+   "id": "0x03000090",
+   "file": "TB_MK15.ZD2",
+   "name": "TB MK1.5"
+  },
+  {
+   "id": "0x030000a0",
+   "file": "OCTFUZZ.ZD2",
+   "name": "OctFuzz"
+  },
+  {
+   "id": "0x030000b0",
+   "file": "SPTBOOST.ZD2",
+   "name": "SpotBoost"
+  },
+  {
+   "id": "0x030000c0",
+   "file": "ACOSIM.ZD2",
+   "name": "Aco.Sim"
+  },
+  {
+   "id": "0x030000d0",
+   "file": "NYC_MUFF.ZD2",
+   "name": "NYC Muff"
+  },
+  {
+   "id": "0x030000e0",
+   "file": "BGTHRTTL.ZD2",
+   "name": "HG THRTTL"
+  },
+  {
+   "id": "0x030000f0",
+   "file": "BG_GRID.ZD2",
+   "name": "BG GRID"
+  },
+  {
+   "id": "0x03000101",
+   "file": "TS_BST1U.ZD2",
+   "name": "TS+Boost"
+  },
+  {
+   "id": "0x03000111",
+   "file": "RDCBST1U.ZD2",
+   "name": "RedCR+BST"
+  },
+  {
+   "id": "0x03000120",
+   "file": "DIST_1.ZD2",
+   "name": "DIST 1"
+  },
+  {
+   "id": "0x03000130",
+   "file": "SQUEAK.ZD2",
+   "name": "Squeak"
+  },
+  {
+   "id": "0x03000140",
+   "file": "UPOCTBST.ZD2",
+   "name": "UpOctBSTR"
+  },
+  {
+   "id": "0x03000150",
+   "file": "OUT_BST.ZD2",
+   "name": "OutputBST"
+  },
+  {
+   "id": "0x03000160",
+   "file": "DISTPLUS.ZD2",
+   "name": "DIST Plus"
+  },
+  {
+   "id": "0x03000170",
+   "file": "ZEN_DRV.ZD2",
+   "name": "Zen O.DRV"
+  },
+  {
+   "id": "0x03000190",
+   "file": "VIOLETDS.ZD2",
+   "name": "VioletDST"
+  },
+  {
+   "id": "0x03000230",
+   "file": "WAVSHPR.ZD2",
+   "name": "WaveSHPR"
+  },
+  {
+   "id": "0x03000240",
+   "file": "RAZORDRV.ZD2",
+   "name": "Razor DRV"
+  },
+  {
+   "id": "0x04000012",
+   "file": "MS800_AU.ZD2",
+   "name": "MS 800"
+  },
+  {
+   "id": "0x0400001c",
+   "file": "MS1959AU.ZD2",
+   "name": "MS 1959"
+  },
+  {
+   "id": "0x0400001d",
+   "file": "MS45OSAU.ZD2",
+   "name": "MS 45os"
+  },
+  {
+   "id": "0x04000022",
+   "file": "FD_TWRAU.ZD2",
+   "name": "FD TWNR"
+  },
+  {
+   "id": "0x04000029",
+   "file": "FDBMANAU.ZD2",
+   "name": "FD B-MAN"
+  },
+  {
+   "id": "0x0400002e",
+   "file": "FDDLXRAU.ZD2",
+   "name": "FD DLXR"
+  },
+  {
+   "id": "0x0400002f",
+   "file": "FDMSTRAU.ZD2",
+   "name": "FD MASTER"
+  },
+  {
+   "id": "0x04000032",
+   "file": "UK30A_AU.ZD2",
+   "name": "UK 30A"
+  },
+  {
+   "id": "0x04000044",
+   "file": "BGMK1_AU.ZD2",
+   "name": "BG MK1"
+  },
+  {
+   "id": "0x04000045",
+   "file": "BGMK3_AU.ZD2",
+   "name": "BG MK3"
+  },
+  {
+   "id": "0x04000052",
+   "file": "XTSBL_AU.ZD2",
+   "name": "XtasyBlue"
+  },
+  {
+   "id": "0x04000062",
+   "file": "HW100_AU.ZD2",
+   "name": "HW 100"
+  },
+  {
+   "id": "0x04000072",
+   "file": "RCTORGAU.ZD2",
+   "name": "Recti ORG"
+  },
+  {
+   "id": "0x04000082",
+   "file": "ORG120AU.ZD2",
+   "name": "ORG120"
+  },
+  {
+   "id": "0x04000092",
+   "file": "DZ_DRVAU.ZD2",
+   "name": "DZ DRV"
+  },
+  {
+   "id": "0x040000a2",
+   "file": "MACH30AU.ZD2",
+   "name": "MATCH30"
+  },
+  {
+   "id": "0x04080010",
+   "file": "KRAMPUS.ZD2",
+   "name": "KRAMPUS"
+  },
+  {
+   "id": "0x04080020",
+   "file": "REDLOOM.ZD2",
+   "name": "REDLOOM"
+  },
+  {
+   "id": "0x04080030",
+   "file": "VELVET.ZD2",
+   "name": "VELVET"
+  },
+  {
+   "id": "0x04080040",
+   "file": "MUDDY.ZD2",
+   "name": "MUDDY"
+  },
+  {
+   "id": "0x04080050",
+   "file": "7_HEAVEN.ZD2",
+   "name": "7 HEAVEN"
+  },
+  {
+   "id": "0x04080060",
+   "file": "POLLEX.ZD2",
+   "name": "POLLEX"
+  },
+  {
+   "id": "0x05000010",
+   "file": "MS4X12.ZD2",
+   "name": "MS4x12"
+  },
+  {
+   "id": "0x05000018",
+   "file": "MS4X12GB.ZD2",
+   "name": "MS4x12GB"
+  },
+  {
+   "id": "0x0500001a",
+   "file": "MS4X12AL.ZD2",
+   "name": "MS4x12AL"
+  },
+  {
+   "id": "0x05000020",
+   "file": "FD2X12.ZD2",
+   "name": "FD2x12"
+  },
+  {
+   "id": "0x05000027",
+   "file": "FDB4X10.ZD2",
+   "name": "FD-B4x10"
+  },
+  {
+   "id": "0x0500002a",
+   "file": "FDDX1X12.ZD2",
+   "name": "FD-DX1x12"
+  },
+  {
+   "id": "0x0500002b",
+   "file": "FDMA2X12.ZD2",
+   "name": "FD MA2x12"
+  },
+  {
+   "id": "0x05000030",
+   "file": "UK2X12.ZD2",
+   "name": "UK2x12"
+  },
+  {
+   "id": "0x05000040",
+   "file": "MK1_1X12.ZD2",
+   "name": "MK1 1x12"
+  },
+  {
+   "id": "0x05000042",
+   "file": "MK3_1X12.ZD2",
+   "name": "MK3 1x12"
+  },
+  {
+   "id": "0x05000050",
+   "file": "BGN4X12.ZD2",
+   "name": "BGN4x12"
+  },
+  {
+   "id": "0x05000060",
+   "file": "HW4X12.ZD2",
+   "name": "HW4x12"
+  },
+  {
+   "id": "0x05000070",
+   "file": "RCT4X12.ZD2",
+   "name": "RCT4x12"
+  },
+  {
+   "id": "0x05000080",
+   "file": "ORG_4X12.ZD2",
+   "name": "ORG4x12"
+  },
+  {
+   "id": "0x05000090",
+   "file": "DZ4X12F.ZD2",
+   "name": "DZ4x12F"
+  },
+  {
+   "id": "0x050000a0",
+   "file": "MA2X12.ZD2",
+   "name": "MA2x12"
+  },
+  {
+   "id": "0x05080010",
+   "file": "KP4X12.ZD2",
+   "name": "KP4x12"
+  },
+  {
+   "id": "0x05080020",
+   "file": "RED4X10.ZD2",
+   "name": "RED4x10"
+  },
+  {
+   "id": "0x05080030",
+   "file": "VT4X12.ZD2",
+   "name": "VT4x12"
+  },
+  {
+   "id": "0x05080040",
+   "file": "MD1X12.ZD2",
+   "name": "MD1x12"
+  },
+  {
+   "id": "0x05080050",
+   "file": "7H4X12.ZD2",
+   "name": "7H4x12"
+  },
+  {
+   "id": "0x05080060",
+   "file": "PL4X12.ZD2",
+   "name": "PL4x12"
+  },
+  {
+   "id": "0x06000010",
+   "file": "TREMOLO.ZD2",
+   "name": "Tremolo"
+  },
+  {
+   "id": "0x06000020",
+   "file": "CHORUS.ZD2",
+   "name": "Chorus"
+  },
+  {
+   "id": "0x06000030",
+   "file": "STEREOCH.ZD2",
+   "name": "StereoCho"
+  },
+  {
+   "id": "0x06000040",
+   "file": "PHASER.ZD2",
+   "name": "Phaser"
+  },
+  {
+   "id": "0x06000050",
+   "file": "VINFLNGR.ZD2",
+   "name": "VinFLNGR"
+  },
+  {
+   "id": "0x06000060",
+   "file": "THEVIBE.ZD2",
+   "name": "TheVibe"
+  },
+  {
+   "id": "0x06000070",
+   "file": "VIBRATO.ZD2",
+   "name": "Vibrato"
+  },
+  {
+   "id": "0x06000078",
+   "file": "SWELLVIB.ZD2",
+   "name": "SwellVibe"
+  },
+  {
+   "id": "0x06000080",
+   "file": "OCTAVE.ZD2",
+   "name": "Octave"
+  },
+  {
+   "id": "0x06000090",
+   "file": "RINGMOD.ZD2",
+   "name": "RingMod"
+  },
+  {
+   "id": "0x060000a0",
+   "file": "DETUNE.ZD2",
+   "name": "Detune"
+  },
+  {
+   "id": "0x060000b0",
+   "file": "PITCHSHF.ZD2",
+   "name": "PitchSHFT"
+  },
+  {
+   "id": "0x060000b8",
+   "file": "POLYSHFT.ZD2",
+   "name": "PolyShift"
+  },
+  {
+   "id": "0x060000c0",
+   "file": "MONOPITC.ZD2",
+   "name": "MonoPitch"
+  },
+  {
+   "id": "0x060000d0",
+   "file": "HPS.ZD2",
+   "name": "HPS"
+  },
+  {
+   "id": "0x060000e1",
+   "file": "KKFLNG1U.ZD2",
+   "name": "Kick FLNG"
+  },
+  {
+   "id": "0x060000f0",
+   "file": "SLICER.ZD2",
+   "name": "Slicer"
+  },
+  {
+   "id": "0x06000100",
+   "file": "CLONECHO.ZD2",
+   "name": "CloneCho"
+  },
+  {
+   "id": "0x06000110",
+   "file": "SUPERCHO.ZD2",
+   "name": "SuperCho"
+  },
+  {
+   "id": "0x06000120",
+   "file": "STONEPHA.ZD2",
+   "name": "StonePha"
+  },
+  {
+   "id": "0x06000130",
+   "file": "CRN_TRI.ZD2",
+   "name": "CoronaTri"
+  },
+  {
+   "id": "0x06000140",
+   "file": "BENDCHO.ZD2",
+   "name": "BendCho"
+  },
+  {
+   "id": "0x06000150",
+   "file": "ANA234CH.ZD2",
+   "name": "AnalogCho"
+  },
+  {
+   "id": "0x06000160",
+   "file": "WRPPHASE.ZD2",
+   "name": "WarpPhase"
+  },
+  {
+   "id": "0x06000171",
+   "file": "DUOPHA1U.ZD2",
+   "name": "Duo Phase"
+  },
+  {
+   "id": "0x06000180",
+   "file": "GEMINOS.ZD2",
+   "name": "GEMINOS"
+  },
+  {
+   "id": "0x07000010",
+   "file": "BOMBER.ZD2",
+   "name": "Bomber"
+  },
+  {
+   "id": "0x07000020",
+   "file": "AUTOPAN.ZD2",
+   "name": "AutoPan"
+  },
+  {
+   "id": "0x07000040",
+   "file": "LOOPROLL.ZD2",
+   "name": "LoopRoll"
+  },
+  {
+   "id": "0x07000050",
+   "file": "HOTSPICE.ZD2",
+   "name": "HotSpice"
+  },
+  {
+   "id": "0x08000010",
+   "file": "DELAY.ZD2",
+   "name": "Delay"
+  },
+  {
+   "id": "0x08000020",
+   "file": "ANALOGDL.ZD2",
+   "name": "AnalogDly"
+  },
+  {
+   "id": "0x08000030",
+   "file": "TAPEECHO.ZD2",
+   "name": "TapeEcho"
+  },
+  {
+   "id": "0x08000040",
+   "file": "REVERSED.ZD2",
+   "name": "ReverseDL"
+  },
+  {
+   "id": "0x08000050",
+   "file": "MODDELAY.ZD2",
+   "name": "ModDelay"
+  },
+  {
+   "id": "0x08000061",
+   "file": "HLDDLY1U.ZD2",
+   "name": "Hold DLY"
+  },
+  {
+   "id": "0x08000080",
+   "file": "P_P_DLY.ZD2",
+   "name": "P-P Delay"
+  },
+  {
+   "id": "0x08000090",
+   "file": "FLTRDLY.ZD2",
+   "name": "FilterDly"
+  },
+  {
+   "id": "0x080000a1",
+   "file": "DUALDL3S.ZD2",
+   "name": "Dual DLY"
+  },
+  {
+   "id": "0x080000b0",
+   "file": "PITCHDLY.ZD2",
+   "name": "Pitch DLY"
+  },
+  {
+   "id": "0x080000c0",
+   "file": "SLAPBKD.ZD2",
+   "name": "SlapBackD"
+  },
+  {
+   "id": "0x080000d1",
+   "file": "APANDL3S.ZD2",
+   "name": "A-Pan DLY"
+  },
+  {
+   "id": "0x080000e1",
+   "file": "PHASDL1U.ZD2",
+   "name": "PhaseDly"
+  },
+  {
+   "id": "0x080000f1",
+   "file": "TPEC3_3S.ZD2",
+   "name": "TapeEcho3"
+  },
+  {
+   "id": "0x08000100",
+   "file": "ICE_DLY.ZD2",
+   "name": "ICE Delay"
+  },
+  {
+   "id": "0x08000110",
+   "file": "SLWATKDL.ZD2",
+   "name": "SlwAtkDly"
+  },
+  {
+   "id": "0x08000120",
+   "file": "SOFTECHO.ZD2",
+   "name": "SoftEcho"
+  },
+  {
+   "id": "0x09000010",
+   "file": "AIR.ZD2",
+   "name": "Air"
+  },
+  {
+   "id": "0x09000020",
+   "file": "ROOM.ZD2",
+   "name": "Room"
+  },
+  {
+   "id": "0x09000028",
+   "file": "BRGTROOM.ZD2",
+   "name": "BrghtRoom"
+  },
+  {
+   "id": "0x09000030",
+   "file": "HALL.ZD2",
+   "name": "Hall"
+  },
+  {
+   "id": "0x09000032",
+   "file": "BRGTHALL.ZD2",
+   "name": "BrghtHall"
+  },
+  {
+   "id": "0x09000040",
+   "file": "HD_HALL.ZD2",
+   "name": "HD Hall"
+  },
+  {
+   "id": "0x09000050",
+   "file": "SPRING.ZD2",
+   "name": "Spring"
+  },
+  {
+   "id": "0x09000060",
+   "file": "FDSPRING.ZD2",
+   "name": "FD Spring"
+  },
+  {
+   "id": "0x09000070",
+   "file": "PLATEREV.ZD2",
+   "name": "Plate"
+  },
+  {
+   "id": "0x09000080",
+   "file": "EARLYREF.ZD2",
+   "name": "EarlyRef"
+  },
+  {
+   "id": "0x09000091",
+   "file": "SPCHOL1U.ZD2",
+   "name": "SpaceHole"
+  },
+  {
+   "id": "0x090000a0",
+   "file": "CHURCH.ZD2",
+   "name": "Church"
+  },
+  {
+   "id": "0x090000b0",
+   "file": "AMBIENCE.ZD2",
+   "name": "Ambience"
+  },
+  {
+   "id": "0x090000c0",
+   "file": "PARTICLE.ZD2",
+   "name": "ParticleR"
+  },
+  {
+   "id": "0x090000d0",
+   "file": "CHAMBER.ZD2",
+   "name": "Chamber"
+  },
+  {
+   "id": "0x090000e0",
+   "file": "GATE_REV.ZD2",
+   "name": "GateRev"
+  },
+  {
+   "id": "0x090000f1",
+   "file": "HLDVRB1U.ZD2",
+   "name": "HoldVerb"
+  },
+  {
+   "id": "0x0b000010",
+   "file": "PDL_VOL.ZD2",
+   "name": "PDL Vol"
+  },
+  {
+   "id": "0x0b000020",
+   "file": "BLCK_WAH.ZD2",
+   "name": "BlackWah"
+  },
+  {
+   "id": "0x0b000030",
+   "file": "CHRM_WAH.ZD2",
+   "name": "ChromeWah"
+  },
+  {
+   "id": "0x0b000040",
+   "file": "WH100.ZD2",
+   "name": "WAH100"
+  },
+  {
+   "id": "0x0b000050",
+   "file": "PDL_PIT.ZD2",
+   "name": "PDL Pitch"
+  },
+  {
+   "id": "0x0b000060",
+   "file": "PDL_MNPT.ZD2",
+   "name": "PDL MnPit"
+  },
+  {
+   "id": "0x0b000070",
+   "file": "PDL_VIBE.ZD2",
+   "name": "PDL Vibe"
+  },
+  {
+   "id": "0x0b000080",
+   "file": "PDL_DRV.ZD2",
+   "name": "PDL Drive"
+  },
+  {
+   "id": "0x0b000090",
+   "file": "PDL_PHA.ZD2",
+   "name": "PDL PHSR"
+  },
+  {
+   "id": "0x0b0000a0",
+   "file": "PDL_DLY.ZD2",
+   "name": "PDL Delay"
+  },
+  {
+   "id": "0x0b0000b0",
+   "file": "PDL_REV.ZD2",
+   "name": "PDL Rev"
+  },
+  {
+   "id": "0x0b0000c0",
+   "file": "OSC_ECHO.ZD2",
+   "name": "OSC Echo"
+  },
+  {
+   "id": "0x0b0000d0",
+   "file": "VOICE_WH.ZD2",
+   "name": "VoiceWah"
+  },
+  {
+   "id": "0x0b0000e0",
+   "file": "PDL_ROT.ZD2",
+   "name": "PDL Roto"
+  },
+  {
+   "id": "0x0b0000f0",
+   "file": "PDL_BITC.ZD2",
+   "name": "P-BitCRSH"
+  },
+  {
+   "id": "0x0b000100",
+   "file": "PDL_FLNG.ZD2",
+   "name": "PDL FLNGR"
+  },
+  {
+   "id": "0x0b800020",
+   "file": "PDL_RESO.ZD2",
+   "name": "PDL Reso"
+  },
+  {
+   "id": "0x0bfffff0",
+   "file": "OUT_VP.ZD2",
+   "name": "Output VP"
+  },
+  {
+   "id": "0x030001a8",
+   "file": "OVRDRV.ZD2",
+   "name": "OverDrive",
+   "source": "read from a G6 with firmware 2.00 (effect list, 2026-11-01)"
+  },
+  {
+   "id": "0x07000060",
+   "file": "BITCRUSH.ZD2",
+   "name": "BitCrush",
+   "source": "read from a G6 with firmware 2.00 (effect list, 2026-11-01)"
+  },
+  {
+   "id": "0x08000130",
+   "file": "DYNADLY.ZD2",
+   "name": "DynaDelay",
+   "source": "read from a G6 with firmware 2.00 (effect list, 2026-11-01)"
+  },
+  {
+   "id": "0x1a000020",
+   "file": "FX_LOOP.ZD2",
+   "name": "FxLoop",
+   "source": "read from a G6 with firmware 2.00 (effect list, 2026-11-01); id from patches saved on that G6, identified by their stored values against the parameter ranges"
+  },
+  {
+   "id": "0x1a000023",
+   "file": "SEND.ZD2",
+   "name": "Send",
+   "source": "read from a G6 with firmware 2.00 (effect list, 2026-11-01); id from patches saved on that G6, identified by their stored values against the parameter ranges"
+  },
+  {
+   "id": "0x1a000026",
+   "file": "RETURN.ZD2",
+   "name": "Return",
+   "source": "read from a G6 with firmware 2.00 (effect list, 2026-11-01); id from patches saved on that G6, identified by their stored values against the parameter ranges"
+  }
+ ],
+ "_firmware_note": "The zoom-zt2 list does not state its firmware version. Compared with the effect list of a G6 running firmware 2.00 (2026-11-01): every listed module is present, and six modules were missing; they are added at the end with a 'source' field. Parameter ranges are not taken from this file: they are read from the connected G6."
+}

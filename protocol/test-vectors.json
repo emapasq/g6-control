@@ -1,0 +1,672 @@
+{
+  "description": "G6 SysEx frames with expected encodings/decodings. Shared by the JavaScript (webapp) and Python (mcp-server) test suites.",
+  "firmware": "2.00",
+  "source_legend": {
+    "captured": "frame received from or sent to a real G6 (firmware 2.00)",
+    "constructed": "frame built from a verified format with a different value",
+    "observed": "format seen in Guitar Lab traffic with a real G6; this exact frame was not stored"
+  },
+  "requests": [
+    {
+      "id": "rhythm-state-request",
+      "frame": "F0 52 00 6E 64 0A F7",
+      "source": "captured"
+    },
+    {
+      "id": "rhythm-start",
+      "frame": "F0 52 00 6E 64 20 00 5B 00 01 00 00 00 00 F7",
+      "source": "captured"
+    },
+    {
+      "id": "rhythm-stop",
+      "frame": "F0 52 00 6E 64 20 00 5B 01 01 00 00 00 00 F7",
+      "source": "captured"
+    },
+    {
+      "id": "sd-space-request",
+      "frame": "F0 52 00 6E 64 3C F7",
+      "source": "captured"
+    },
+    {
+      "id": "wav-count-request",
+      "frame": "F0 52 00 6E 64 35 F7",
+      "source": "captured"
+    }
+  ],
+  "setters": [
+    {
+      "id": "set-bpm-90",
+      "param": "bpm",
+      "value": 90,
+      "frame": "F0 52 00 6E 64 20 00 64 02 5A 00 00 00 00 F7",
+      "source": "captured"
+    },
+    {
+      "id": "set-bpm-153",
+      "param": "bpm",
+      "value": 153,
+      "frame": "F0 52 00 6E 64 20 00 64 02 19 01 00 00 00 F7",
+      "source": "captured"
+    },
+    {
+      "id": "set-pattern-33",
+      "param": "pattern",
+      "value": 33,
+      "frame": "F0 52 00 6E 64 20 00 64 5A 21 00 00 00 00 F7",
+      "source": "captured"
+    },
+    {
+      "id": "set-pattern-32",
+      "param": "pattern",
+      "value": 32,
+      "frame": "F0 52 00 6E 64 20 00 64 5A 20 00 00 00 00 F7",
+      "source": "captured"
+    },
+    {
+      "id": "set-volume-50",
+      "param": "volume",
+      "value": 50,
+      "frame": "F0 52 00 6E 64 20 00 64 5B 32 00 00 00 00 F7",
+      "source": "constructed"
+    },
+    {
+      "id": "set-count-1",
+      "param": "count",
+      "value": 1,
+      "frame": "F0 52 00 6E 64 20 00 64 5C 01 00 00 00 00 F7",
+      "source": "constructed"
+    }
+  ],
+  "confirmations": [
+    {
+      "id": "confirm-pattern-33",
+      "frame": "F0 52 00 6E 64 20 01 64 5A 21 00 00 00 00 F7",
+      "expect": {
+        "name": "pattern",
+        "value": 33,
+        "confirmed": true
+      },
+      "source": "captured"
+    },
+    {
+      "id": "confirm-pattern-32",
+      "frame": "F0 52 00 6E 64 20 01 64 5A 20 00 00 00 00 F7",
+      "expect": {
+        "name": "pattern",
+        "value": 32,
+        "confirmed": true
+      },
+      "source": "captured"
+    },
+    {
+      "id": "confirm-count-1",
+      "frame": "F0 52 00 6E 64 20 01 64 5C 01 00 00 00 00 F7",
+      "expect": {
+        "name": "count",
+        "value": 1,
+        "confirmed": true
+      },
+      "source": "captured"
+    }
+  ],
+  "rhythm_states": [
+    {
+      "id": "rhythm-state-count-0",
+      "frame": "F0 52 00 6E 64 09 37 00 01 00 05 00 00 01 00 32 06 00 00 00 00 00 00 00 01 00 06 06 00 00 00 00 00 00 00 00 3C 00 33 31 01 20 32 00 00 00 3C 01 01 00 64 00 00 01 00 01 00 00 00 00 F7",
+      "expect": {
+        "bpm": 55,
+        "pattern": 32,
+        "volume": 50,
+        "count": 0,
+        "playing": null,
+        "playingVerified": false
+      },
+      "source": "captured"
+    },
+    {
+      "id": "rhythm-state-count-1",
+      "frame": "F0 52 00 6E 64 09 37 00 01 00 05 00 00 01 00 32 06 00 00 00 00 00 00 00 01 00 06 06 00 00 00 00 00 00 00 00 3C 00 33 31 01 20 32 01 00 00 3C 01 01 00 64 00 00 01 00 01 00 00 00 00 F7",
+      "expect": {
+        "bpm": 55,
+        "pattern": 32,
+        "volume": 50,
+        "count": 1,
+        "playing": null,
+        "playingVerified": false
+      },
+      "source": "captured"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "patch-changed-slot-114",
+      "frame": "F0 52 00 6E 64 26 00 00 1C 00 01 00 F7",
+      "expect": {
+        "slot": 114
+      },
+      "source": "captured"
+    },
+    {
+      "id": "patch-changed-slot-110",
+      "frame": "F0 52 00 6E 64 26 00 00 1B 00 01 00 F7",
+      "expect": {
+        "slot": 110
+      },
+      "source": "captured"
+    }
+  ],
+  "must_be_blocked": [
+    {
+      "id": "effect-on-off-as-param-0",
+      "frame": "F0 52 00 6E 64 20 00 03 00 01 00 00 00 00 F7",
+      "reason": "on/off notification form on a chain block: froze the device when sent"
+    },
+    {
+      "id": "bpm-out-of-range",
+      "frame": "F0 52 00 6E 64 20 00 64 02 1E 00 00 00 00 F7",
+      "reason": "BPM 30 is below 40"
+    },
+    {
+      "id": "pattern-out-of-range",
+      "frame": "F0 52 00 6E 64 20 00 64 5A 44 00 00 00 00 F7",
+      "reason": "pattern 68 is above 67"
+    },
+    {
+      "id": "patch-volume",
+      "frame": "F0 52 00 6E 64 20 00 64 00 62 00 00 00 00 F7",
+      "reason": "patch volume: valid range not established"
+    },
+    {
+      "id": "patch-write-start",
+      "frame": "F0 52 00 6E 56 F7",
+      "reason": "patch writes are not exposed in the web app (the MCP server allows them, with backup and read-back)",
+      "blocked_in": [
+        "webapp"
+      ]
+    },
+    {
+      "id": "wav-list-too-many",
+      "frame": "F0 52 00 6E 64 37 00 00 32 00 F7",
+      "reason": "51 records: at most 50 per request"
+    },
+    {
+      "id": "wav-load-without-index",
+      "frame": "F0 52 00 6E 64 39 F7",
+      "reason": "WAV load without its 2-byte index"
+    },
+    {
+      "id": "wav-load-index-256",
+      "frame": "F0 52 00 6E 64 39 00 02 F7",
+      "reason": "index 256: at most 256 files (0-255)"
+    },
+    {
+      "id": "wav-load-not-7-bit",
+      "frame": "F0 52 00 6E 64 39 80 00 F7",
+      "reason": "data bytes must be 7-bit"
+    },
+    {
+      "id": "looper-record-gesture-other-value",
+      "frame": "F0 52 00 6E 64 20 00 5C 00 00 00 00 00 00 F7",
+      "reason": "Looper block 5C with a value other than the verified ones"
+    },
+    {
+      "id": "looper-other-parameter",
+      "frame": "F0 52 00 6E 64 20 00 5C 02 01 00 00 00 00 F7",
+      "reason": "Looper block 5C, parameter 2: not documented"
+    },
+    {
+      "id": "stop-mode-3",
+      "frame": "F0 52 00 6E 64 20 00 64 5E 03 00 00 00 00 F7",
+      "reason": "STOP MODE accepts only 0, 1, 2"
+    },
+    {
+      "id": "loop-mode",
+      "frame": "F0 52 00 6E 64 20 00 64 62 00 00 00 00 00 F7",
+      "reason": "LOOP MODE setter: not used (fixed to STEREO with an SD card inserted; resets the Looper content)"
+    },
+    {
+      "id": "position-2",
+      "frame": "F0 52 00 6E 64 20 00 64 61 02 00 00 00 00 F7",
+      "reason": "POSITION is 0 or 1"
+    },
+    {
+      "id": "looper-volume-101",
+      "frame": "F0 52 00 6E 64 20 00 64 5F 65 00 00 00 00 F7",
+      "reason": "Looper volume is 0-100"
+    }
+  ],
+  "storage": {
+    "sd_space": {
+      "id": "sd-space-reply",
+      "frame": "F0 52 00 6E 64 3D 00 00 00 65 6D 01 00 00 00 00 00 00 60 33 6D 01 00 00 00 00 F7",
+      "expect": {
+        "totalBytes": 63831015424,
+        "freeBytes": 63727730688
+      },
+      "source": "captured"
+    },
+    "wav_count": {
+      "id": "wav-count-reply",
+      "frame": "F0 52 00 6E 64 36 2D 00 F7",
+      "expect": {
+        "count": 45
+      },
+      "source": "captured"
+    },
+    "wav_list_request": {
+      "id": "wav-list-request-0-44",
+      "start": 0,
+      "end": 44,
+      "known_count": 45,
+      "frame": "F0 52 00 6E 64 37 00 00 2C 00 F7",
+      "source": "constructed"
+    },
+    "wav_list_reply": {
+      "id": "wav-list-reply-2-records",
+      "start": 0,
+      "end": 1,
+      "frame": "F0 52 00 6E 64 38 02 4C 4F 4F 50 45 52 5F 30 30 31 2E 57 41 56 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 64 65 6D 6F 20 62 61 63 6B 69 6E 67 20 31 32 30 62 70 6D 2E 77 61 76 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 F7",
+      "expect": {
+        "names": [
+          "LOOPER_001.WAV",
+          "demo backing 120bpm.wav"
+        ]
+      },
+      "source": "constructed"
+    }
+  },
+  "live": [
+    {
+      "id": "select-block-3",
+      "frame": "F0 52 00 6E 64 20 00 64 01 03 00 00 00 00 F7",
+      "build": {
+        "msg": "select_block",
+        "block": 3
+      },
+      "source": "observed"
+    },
+    {
+      "id": "effect-toggle-press",
+      "frame": "F0 52 00 6E 64 20 00 5A 00 01 00 00 00 00 F7",
+      "build": {
+        "msg": "toggle_press"
+      },
+      "source": "observed"
+    },
+    {
+      "id": "effect-toggle-release",
+      "frame": "F0 52 00 6E 64 20 00 5A 00 00 00 00 00 00 F7",
+      "build": {
+        "msg": "toggle_release"
+      },
+      "source": "observed"
+    },
+    {
+      "id": "effect-param-block4-param6-70",
+      "frame": "F0 52 00 6E 64 20 00 04 06 46 00 00 00 00 F7",
+      "build": {
+        "msg": "effect_param",
+        "block": 4,
+        "param": 6,
+        "value": 70
+      },
+      "source": "constructed"
+    },
+    {
+      "id": "display-request-0-8",
+      "frame": "F0 52 00 6E 64 02 00 08 00 F7",
+      "build": {
+        "msg": "display_request",
+        "first": 0,
+        "last": 8
+      },
+      "source": "observed"
+    },
+    {
+      "id": "active-slot-request",
+      "frame": "F0 52 00 6E 33 F7",
+      "build": {
+        "msg": "request_active_slot"
+      },
+      "source": "observed"
+    },
+    {
+      "id": "active-patch-request",
+      "frame": "F0 52 00 6E 64 13 F7",
+      "build": {
+        "msg": "request_active_patch"
+      },
+      "source": "observed"
+    },
+    {
+      "id": "tuner-on",
+      "frame": "F0 52 00 6E 64 0B F7",
+      "build": {
+        "msg": "tuner_on"
+      },
+      "source": "observed"
+    },
+    {
+      "id": "tuner-off",
+      "frame": "F0 52 00 6E 64 0C F7",
+      "build": {
+        "msg": "tuner_off"
+      },
+      "source": "observed"
+    }
+  ],
+  "effects": {
+    "list_start": {
+      "id": "effects-list-start",
+      "frame": "F0 52 00 6E 64 04 F7",
+      "reply": "F0 52 00 6E 00 00 F7",
+      "source": "observed"
+    },
+    "list_next": {
+      "id": "effects-list-next",
+      "frame": "F0 52 00 6E 64 05 F7",
+      "source": "observed"
+    },
+    "record": {
+      "id": "effect-record-ts-drive",
+      "frame": "F0 52 00 6E 64 06 54 53 5F 44 52 49 56 45 2E 5A 44 32 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 06 01 00 01 00 00 00 00 00 00 00 00 64 00 32 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 64 00 32 00 00 00 00 00 00 00 00 64 00 50 00 00 00 00 00 00 00 00 F7",
+      "expect": {
+        "file": "TS_DRIVE.ZD2",
+        "params": {
+          "2": {
+            "max": 100,
+            "default": 50
+          },
+          "3": {
+            "max": 1,
+            "default": 0
+          },
+          "4": {
+            "max": 100,
+            "default": 50
+          },
+          "5": {
+            "max": 100,
+            "default": 80
+          }
+        }
+      },
+      "source": "constructed"
+    },
+    "end": {
+      "id": "effects-list-end",
+      "frame": "F0 52 00 6E 64 07 F7",
+      "source": "constructed"
+    }
+  },
+  "wav_load": {
+    "request": {
+      "id": "wav-load-index-44",
+      "index": 44,
+      "known_count": 45,
+      "frame": "F0 52 00 6E 64 39 2C 00 F7",
+      "source": "captured",
+      "note": "loaded LOOPER_043.WAV on a G6 with firmware 2.00, twice (confirmed on the device display); the second time resolved by name by the MCP server"
+    },
+    "reply_ok": {
+      "id": "wav-load-reply-completed",
+      "frame": "F0 52 00 6E 00 00 F7",
+      "expect": {
+        "result": 0
+      },
+      "source": "captured"
+    },
+    "reply_error": {
+      "id": "wav-load-reply-undocumented-code",
+      "frame": "F0 52 00 6E 00 13 F7",
+      "expect": {
+        "result": 19
+      },
+      "source": "constructed",
+      "note": "a result code other than 00 (not documented): reported without a meaning"
+    },
+    "file_event": {
+      "id": "looper-file-event",
+      "frame": "F0 52 00 6E 64 3B 4C 4F 4F 50 45 52 5F 30 34 33 2E 57 41 56 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 F7",
+      "expect": {
+        "name": "LOOPER_043.WAV"
+      },
+      "source": "observed",
+      "note": "the G6 announced LOOPER_043.WAV in 64 3B after the load (MCP server test, 2026-11-01); the raw frame was not stored, so the padding here is assumed (NUL)"
+    }
+  },
+  "looper": {
+    "play": {
+      "id": "looper-play",
+      "frame": "F0 52 00 6E 64 20 00 5C 00 01 00 00 00 00 F7",
+      "source": "captured",
+      "note": "sent once with LOOPER_044.WAV loaded and stopped, Rhythm stopped, STOP MODE Instant: playback started"
+    },
+    "stop": {
+      "id": "looper-stop",
+      "frame": "F0 52 00 6E 64 20 00 5C 01 01 00 00 00 00 F7",
+      "source": "captured",
+      "note": "sent once while LOOPER_044.WAV was playing (STOP MODE Instant): playback stopped"
+    }
+  },
+  "looper_settings": {
+    "note": "STOP MODE setter and readback verified on the device (INSTANT -> FINISH -> INSTANT, INSTANT -> FADE OUT -> INSTANT, 2026-11-01); POSITION 1 confirmed on the display; LOOP MODE 0 read on the device; Looper volume (byte 46, setter 5F) verified on the device: read 60 and 45 matched the display (also after a power cycle), setter 50 and 60 confirmed, read back and shown on the display (2026-11-01); POSITION setter 61 verified on the device: PRE-EFFECTS -> POST-EFFECTS -> PRE-EFFECTS, each confirmed, read back and shown on the display (2026-11-01)",
+    "states": [
+      {
+        "id": "settings-stop-finish",
+        "frame": "F0 52 00 6E 64 09 78 00 01 00 05 00 00 01 00 32 06 00 00 00 00 00 00 00 01 00 06 06 00 00 00 00 00 00 00 00 3C 00 33 31 01 20 0A 00 00 01 3C 01 01 00 64 00 00 01 00 01 00 00 00 00 F7",
+        "expect": {
+          "stopMode": 1,
+          "stopModeName": "FINISH",
+          "position": 1,
+          "positionName": "POST-EFFECTS",
+          "loopMode": 0,
+          "loopModeName": "MONO",
+          "volume": 60
+        },
+        "source": "captured"
+      },
+      {
+        "id": "settings-stop-instant",
+        "frame": "F0 52 00 6E 64 09 78 00 01 00 05 00 00 01 00 32 06 00 00 00 00 00 00 00 01 00 06 06 00 00 00 00 00 00 00 00 3C 00 33 31 01 20 0A 00 00 00 3C 01 01 00 64 00 00 01 00 01 00 00 00 00 F7",
+        "expect": {
+          "stopMode": 0,
+          "stopModeName": "INSTANT",
+          "position": 1,
+          "positionName": "POST-EFFECTS",
+          "loopMode": 0,
+          "loopModeName": "MONO",
+          "volume": 60
+        },
+        "source": "captured"
+      },
+      {
+        "id": "settings-stop-fade-out",
+        "frame": "F0 52 00 6E 64 09 78 00 01 00 05 00 00 01 00 32 06 00 00 00 00 00 00 00 01 00 06 06 00 00 00 00 00 00 00 00 3C 00 33 31 01 20 0A 00 00 02 3C 01 01 00 64 00 00 01 00 01 00 00 00 00 F7",
+        "expect": {
+          "stopMode": 2,
+          "stopModeName": "FADE OUT",
+          "position": 1,
+          "positionName": "POST-EFFECTS",
+          "loopMode": 0,
+          "loopModeName": "MONO",
+          "volume": 60
+        },
+        "source": "captured"
+      },
+      {
+        "id": "settings-looper-volume-50",
+        "frame": "F0 52 00 6E 64 09 78 00 01 00 05 00 00 01 00 32 06 00 00 00 00 00 00 00 01 00 06 06 00 00 00 00 00 00 00 00 3C 00 33 31 01 20 19 00 00 00 32 01 01 00 64 00 00 01 00 01 00 00 00 00 F7",
+        "expect": {
+          "stopMode": 0,
+          "stopModeName": "INSTANT",
+          "position": 1,
+          "positionName": "POST-EFFECTS",
+          "loopMode": 0,
+          "loopModeName": "MONO",
+          "volume": 50
+        },
+        "source": "captured"
+      },
+      {
+        "id": "settings-looper-volume-60",
+        "frame": "F0 52 00 6E 64 09 78 00 01 00 05 00 00 01 00 32 06 00 00 00 00 00 00 00 01 00 06 06 00 00 00 00 00 00 00 00 3C 00 33 31 01 20 19 00 00 00 3C 01 01 00 64 00 00 01 00 01 00 00 00 00 F7",
+        "expect": {
+          "stopMode": 0,
+          "stopModeName": "INSTANT",
+          "position": 1,
+          "positionName": "POST-EFFECTS",
+          "loopMode": 0,
+          "loopModeName": "MONO",
+          "volume": 60
+        },
+        "source": "captured"
+      },
+      {
+        "id": "settings-position-post",
+        "frame": "F0 52 00 6E 64 09 78 00 01 00 05 00 00 01 00 32 06 00 00 00 00 00 00 00 01 00 06 06 00 00 00 00 00 00 00 00 3C 00 33 31 01 20 19 00 00 00 41 01 01 00 64 00 00 01 00 01 00 00 00 00 F7",
+        "expect": {
+          "stopMode": 0,
+          "stopModeName": "INSTANT",
+          "position": 1,
+          "positionName": "POST-EFFECTS",
+          "loopMode": 0,
+          "loopModeName": "MONO",
+          "volume": 65
+        },
+        "source": "captured"
+      },
+      {
+        "id": "settings-position-pre",
+        "frame": "F0 52 00 6E 64 09 78 00 01 00 05 00 00 01 00 32 06 00 00 00 00 00 00 00 01 00 06 06 00 00 00 00 00 00 00 00 3C 00 33 31 01 20 19 00 00 00 41 01 00 00 64 00 00 01 00 01 00 00 00 00 F7",
+        "expect": {
+          "stopMode": 0,
+          "stopModeName": "INSTANT",
+          "position": 0,
+          "positionName": "PRE-EFFECTS",
+          "loopMode": 0,
+          "loopModeName": "MONO",
+          "volume": 65
+        },
+        "source": "captured"
+      }
+    ],
+    "setters": [
+      {
+        "id": "set-stop-mode-finish",
+        "value": 1,
+        "frame": "F0 52 00 6E 64 20 00 64 5E 01 00 00 00 00 F7",
+        "source": "captured"
+      },
+      {
+        "id": "set-stop-mode-fade-out",
+        "value": 2,
+        "frame": "F0 52 00 6E 64 20 00 64 5E 02 00 00 00 00 F7",
+        "source": "constructed"
+      },
+      {
+        "id": "set-stop-mode-instant",
+        "value": 0,
+        "frame": "F0 52 00 6E 64 20 00 64 5E 00 00 00 00 00 F7",
+        "source": "constructed"
+      }
+    ],
+    "confirmations": [
+      {
+        "id": "confirm-stop-mode-finish",
+        "frame": "F0 52 00 6E 64 20 01 64 5E 01 00 00 00 00 F7",
+        "expect": {
+          "value": 1,
+          "confirmed": true
+        },
+        "source": "captured"
+      },
+      {
+        "id": "confirm-stop-mode-fade-out",
+        "frame": "F0 52 00 6E 64 20 01 64 5E 02 00 00 00 00 F7",
+        "expect": {
+          "value": 2,
+          "confirmed": true
+        },
+        "source": "captured"
+      },
+      {
+        "id": "confirm-stop-mode-instant",
+        "frame": "F0 52 00 6E 64 20 01 64 5E 00 00 00 00 00 F7",
+        "expect": {
+          "value": 0,
+          "confirmed": true
+        },
+        "source": "captured"
+      }
+    ],
+    "volume_setters": [
+      {
+        "id": "set-looper-volume-50",
+        "value": 50,
+        "frame": "F0 52 00 6E 64 20 00 64 5F 32 00 00 00 00 F7",
+        "source": "captured"
+      },
+      {
+        "id": "set-looper-volume-60",
+        "value": 60,
+        "frame": "F0 52 00 6E 64 20 00 64 5F 3C 00 00 00 00 F7",
+        "source": "captured"
+      }
+    ],
+    "volume_confirmations": [
+      {
+        "id": "confirm-looper-volume-50",
+        "frame": "F0 52 00 6E 64 20 01 64 5F 32 00 00 00 00 F7",
+        "expect": {
+          "value": 50,
+          "confirmed": true
+        },
+        "source": "captured"
+      },
+      {
+        "id": "confirm-looper-volume-60",
+        "frame": "F0 52 00 6E 64 20 01 64 5F 3C 00 00 00 00 F7",
+        "expect": {
+          "value": 60,
+          "confirmed": true
+        },
+        "source": "captured"
+      }
+    ],
+    "position_setters": [
+      {
+        "id": "set-position-post",
+        "value": 1,
+        "frame": "F0 52 00 6E 64 20 00 64 61 01 00 00 00 00 F7",
+        "source": "captured"
+      },
+      {
+        "id": "set-position-pre",
+        "value": 0,
+        "frame": "F0 52 00 6E 64 20 00 64 61 00 00 00 00 00 F7",
+        "source": "captured"
+      }
+    ],
+    "position_confirmations": [
+      {
+        "id": "confirm-position-post",
+        "frame": "F0 52 00 6E 64 20 01 64 61 01 00 00 00 00 F7",
+        "expect": {
+          "value": 1,
+          "confirmed": true
+        },
+        "source": "captured"
+      },
+      {
+        "id": "confirm-position-pre",
+        "frame": "F0 52 00 6E 64 20 01 64 61 00 00 00 00 00 F7",
+        "expect": {
+          "value": 0,
+          "confirmed": true
+        },
+        "source": "captured"
+      }
+    ]
+  }
+}

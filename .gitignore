@@ -1,0 +1,42 @@
+# --- macOS / editors ---
+.DS_Store
+.AppleDouble
+._*
+.vscode/
+.idea/
+*.swp
+
+# --- Python (mcp-server) ---
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- Node (tests) ---
+node_modules/
+npm-debug.log*
+
+# --- Personal G6 data: never publish ---
+backup/
+patches/
+*.zptc
+*.syx
+*.wav
+*.WAV
+
+# --- Local configuration and secrets ---
+.env
+.env.*
+!.env.example
+config.local.*
+docker-compose.override.yml
+
+# --- Logs and MIDI captures ---
+*.log
+captures/

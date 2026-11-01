@@ -1,0 +1,10 @@
+services:
+  g6-webapp:
+    image: nginx:1.27-alpine
+    container_name: g6-webapp
+    ports:
+      - "127.0.0.1:8616:80"   # localhost only: Web MIDI needs a secure context, and the G6 is on this Mac anyway
+    volumes:
+      - ./public:/usr/share/nginx/html:ro
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    restart: unless-stopped

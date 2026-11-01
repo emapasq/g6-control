@@ -1,0 +1,9 @@
+{
+  "device": "example foot controller",
+  "bindings": [
+    { "message": "cc", "channel": 1, "number": 20, "value": 127, "action": "rhythm.start" },
+    { "message": "cc", "channel": 1, "number": 21, "value": 127, "action": "rhythm.stop" },
+    { "message": "cc", "channel": 1, "number": 22, "value": 127, "action": "patch.previous" },
+    { "message": "cc", "channel": 1, "number": 23, "value": 127, "action": "patch.next" }
+  ]
+}

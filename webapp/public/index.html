@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>G6 Control</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <h1>G6 Control</h1>
+    <div class="conn" id="conn" data-state="disconnected">
+      <span class="dot" aria-hidden="true"></span>
+      <span id="conn-text">Not connected</span>
+    </div>
+    <button class="btn" id="btn-connect" data-action="connect">Connect</button>
+  </header>
+
+  <div class="banner" id="error" hidden></div>
+  <div class="banner notice" id="notice" hidden></div>
+
+  <main>
+    <section class="card" aria-labelledby="patch-title">
+      <h2 id="patch-title">Patch</h2>
+      <div class="patch-display">
+        <button class="btn nav" data-action="patch.previous" aria-label="Previous patch" title="Previous patch (←)">◀</button>
+        <div class="patch-info">
+          <div class="slot" id="slot">—</div>
+          <div class="patch-name" id="patch-name">—</div>
+        </div>
+        <button class="btn nav" data-action="patch.next" aria-label="Next patch" title="Next patch (→)">▶</button>
+      </div>
+
+      <form class="row" id="patch-go">
+        <select id="patch-select" aria-label="Choose a patch">
+          <option value="">Patch list not loaded</option>
+        </select>
+        <input type="number" id="slot-input" min="1" max="240" placeholder="Slot" aria-label="Slot number">
+        <button class="btn" type="submit">Go</button>
+      </form>
+
+      <div class="row">
+        <button class="btn ghost" id="btn-load-list" data-action="patch.loadList">Load patch list</button>
+        <span class="muted" id="list-status"></span>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="rhythm-title">
+      <div class="card-head">
+        <h2 id="rhythm-title">Rhythm</h2>
+        <button class="btn ghost small" data-action="rhythm.refresh" title="Read the rhythm state from the G6 (R)">Refresh</button>
+      </div>
+
+      <div class="bpm-row">
+        <button class="btn step" data-action="rhythm.nudgeBpm" data-arg="-5">−5</button>
+        <button class="btn step" data-action="rhythm.nudgeBpm" data-arg="-1">−1</button>
+        <form class="bpm" id="bpm-form">
+          <input class="bpm-value" id="bpm-input" type="number" min="40" max="250" inputmode="numeric" aria-label="BPM" placeholder="—">
+          <span class="bpm-unit">BPM · type and press Enter</span>
+        </form>
+        <button class="btn step" data-action="rhythm.nudgeBpm" data-arg="1">+1</button>
+        <button class="btn step" data-action="rhythm.nudgeBpm" data-arg="5">+5</button>
+      </div>
+
+      <div class="field">
+        <label for="pattern-select">Pattern</label>
+        <select id="pattern-select"></select>
+      </div>
+
+      <div class="field">
+        <label for="volume-slider">Volume <span id="volume-value" class="muted">—</span></label>
+        <input type="range" id="volume-slider" min="0" max="100" value="50">
+      </div>
+
+      <label class="toggle">
+        <input type="checkbox" id="count-toggle">
+        <span>Count <span class="muted">(looper precount)</span></span>
+      </label>
+
+      <div class="transport">
+        <button class="btn start" data-action="rhythm.start" title="Start (S)">▶ Start</button>
+        <button class="btn stop" data-action="rhythm.stop" title="Stop (X or Esc)">■ Stop</button>
+      </div>
+      <p class="muted" id="rhythm-state">Playback: unknown</p>
+    </section>
+
+    <section class="card wide" aria-labelledby="storage-title">
+      <div class="card-head">
+        <h2 id="storage-title">SD card</h2>
+        <button class="btn ghost small" data-action="storage.refresh">Read SD card</button>
+      </div>
+
+      <div class="storage-grid">
+        <div>
+          <div class="space-text" id="sd-space">Not read yet</div>
+          <div class="space-bar" aria-hidden="true"><div class="space-used" id="sd-used"></div></div>
+          <p class="muted" id="storage-meta">Read-only. Values come from the device's file cache and may not reflect the latest changes.</p>
+        </div>
+        <div>
+          <div class="wav-head">WAV files <span class="muted" id="wav-count"></span></div>
+          <ul class="wav-list" id="wav-list"></ul>
+          <div class="load-uncertain" id="load-uncertain" hidden>
+            <p id="load-uncertain-text"></p>
+            <button class="btn ghost small" id="btn-clear-uncertain">I checked the Looper screen: allow loads again</button>
+          </div>
+          <label class="looper-confirm">
+            <input type="checkbox" id="looper-confirm">
+            The Looper is stopped and holds nothing I need to keep
+          </label>
+          <p class="muted">Load puts a file into the Looper: it replaces the current Looper session and may change the
+            BPM. It never plays, records or deletes. Confirm on the device screen after each load.</p>
+
+          <div class="looper-panel">
+            <div class="wav-head">Looper <span class="muted" id="looper-loaded">· no WAV loaded by this page</span></div>
+            <label class="looper-confirm">
+              <input type="checkbox" id="looper-armed">
+              On the display: the WAV is loaded and the Looper is stopped. Allow one Play.
+            </label>
+            <div class="looper-settings">
+              <label for="stop-mode-select">STOP MODE</label>
+              <select id="stop-mode-select">
+                <option value="" disabled>—</option>
+                <option value="0">Instant</option>
+                <option value="1">Finish</option>
+                <option value="2">Fade out</option>
+              </select>
+              <label for="position-select">POSITION</label>
+              <select id="position-select">
+                <option value="" disabled>—</option>
+                <option value="0">Pre-effects</option>
+                <option value="1">Post-effects</option>
+              </select>
+            </div>
+            <label class="looper-confirm">
+              <input type="checkbox" id="position-confirm">
+              Changing POSITION stops and resets the Looper: it holds nothing I need to keep.
+            </label>
+            <div class="field looper-volume">
+              <label for="looper-volume-slider">Looper volume <span class="muted" id="looper-volume-value">—</span></label>
+              <input type="range" id="looper-volume-slider" min="0" max="100" step="1">
+            </div>
+            <div class="transport">
+              <button class="btn start" id="btn-looper-play">▶ Play</button>
+              <button class="btn stop" id="btn-looper-stop">■ Stop</button>
+            </div>
+            <p class="muted">Play is sent once, then disabled until you confirm again; Stop only after that Play. The
+              same gesture can record or overdub if the Looper is not as confirmed. If the loop does not stop, use the
+              foot switch.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <details class="log">
+    <summary>MIDI log</summary>
+    <pre id="log"></pre>
+  </details>
+
+  <footer class="muted">
+    Keys: ← → patch · S start · X/Esc stop · ↑ ↓ BPM ±1 (Shift ±5) · R refresh rhythm
+    <br>Unofficial project, not affiliated with Zoom Corporation.
+  </footer>
+</body>
+</html>
