@@ -11,6 +11,8 @@ Tools to control a **Zoom G6** multi-effects processor from a computer over USB 
   slot (see [`mcp-server/README.md`](mcp-server/README.md#using-it-to-generate-patches)).
 - **`protocol/`** — the list of known commands and shared test frames.
 
+**New here?** Follow the step-by-step guides: [web app](docs/HOWTO-webapp.md) · [MCP server](docs/HOWTO-mcp.md).
+
 > **Unofficial project.** Not affiliated with, endorsed by or supported by Zoom Corporation.
 > "Zoom" and "G6" are used only to describe compatibility. Verified on firmware 2.00 only (see *Compatibility*).
 > Use at your own risk: sending unknown messages can freeze the device (see `protocol/COMMANDS.md`, *Dangerous*).
@@ -62,7 +64,7 @@ cd webapp
 docker compose up -d
 ```
 
-Open <http://localhost:8616> in Chrome and click **Connect**. Details in [`webapp/README.md`](webapp/README.md).
+Open <http://localhost:8616> in Chrome and click **Connect**. No Docker? See the [step-by-step guide](docs/HOWTO-webapp.md). Details in [`webapp/README.md`](webapp/README.md).
 
 ## MCP server quick start
 
@@ -71,7 +73,7 @@ cd mcp-server
 python3 -m venv .venv && .venv/bin/pip install -e .
 ```
 
-Then register `.venv/bin/g6-mcp` in your assistant: see [`mcp-server/README.md`](mcp-server/README.md).
+Then register `.venv/bin/g6-mcp` in your assistant: see the [step-by-step guide](docs/HOWTO-mcp.md) or [`mcp-server/README.md`](mcp-server/README.md).
 
 ## Tests
 
